@@ -21,7 +21,20 @@
     <th></th>
     </tr>
 </thead>
-
+<tbody id="product-list">
+    {{!-- {{#each products}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{price}}</td>
+        <td>
+        <form class="delete-form" action="/api/products/{{id}}" method="post">
+            <input type="hidden" name="_method" value="delete" />
+            <button type="submit">Delete</button>
+        </form>
+        </td>
+    </tr>
+    {{/each}} --}}
+</tbody>
 </table>
 <script src="/socket.io/socket.io.js"></script>
 <script>
@@ -50,7 +63,7 @@
             <td>${producto.title}</td>
             <td>${producto.price}</td>
             <button type="button" class="delete btn" id=${producto.id}>Delete</button>
-        </tr>
+        </tr>`
     })
     listProducts.innerHTML = productos;
     addListenerToDeleteButtons();
