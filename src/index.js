@@ -58,4 +58,12 @@ io.on("connection", async socket => {
         await emitirProductos();
     })
 })
-
+const messages = [];
+io.on("connection", socket => {
+    console.log("connected id: "+socket.id);
+    socket.emit("messages", messages); 
+    socket.on("new chat", data=> {
+        messages.push(data)
+        socketServer.emit("all", messages)
+    })
+ })
